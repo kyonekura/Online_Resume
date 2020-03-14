@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.5/vivus.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+    <title>Online Resume</title>
+
+</head>
+
+<body>
+    <video class="mask" autoplay loop muted>
+        <source src="stand1.mp4">
+    </video>
+
+    <div class="basicInfo">
+        <div class="basic" alt="" aria-busy="">
+
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 444 606" id="aLine">
+            <polyline fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-1" points="1 322 1 605 243 605" />
+            <polyline fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-1" points="443 189 443 1 343 1" />
+        </svg>
+
+    </div>
+    <div class="atama" id="button"></div>
+
+    <div class="zayuuInfo">
+        <div class="zayuu" alt="" aria-busy=""></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 499.91 107" id="zayuu">
+            <circle fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-1" cx="14.55" cy="60.58" r="13.42" />
+            <line fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" x1="14.91" y1="61" x2="202.91" y2="61" />
+            <line fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" x1="202.91" y1="40" x2="202.91" y2="107" />
+            <polyline fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" points="441.91 1 479.91 1 498.91 1 498.91 36" />
+        </svg>
+    </div>
+    <div class="mune" id="button"></div>
+
+    <div class="rekishiInfo">
+        <div class="rekishi" alt="" aria-busy=""></div>
+        <div class="rekishi2" alt="" aria-busy=""></div>
+        <svg id="rekishi" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1097 498.82">
+            <circle fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-1" cx="515.64" cy="484.27" r="13.42" />
+            <line fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" x1="391" y1="412.69" x2="516" y2="484.69" />
+            <polyline fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-3" points="313 459.69 391 459.69 391 221.69" />
+            <line fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" x1="1096" y1="270.69" x2="1096" y2="121.69" />
+            <line fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" x1="391" y1="242.69" x2="701" y2="62.69" />
+            <polyline fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" points="1 319.69 1 203.69 24 179.69" />
+            <polyline fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" points="701 140.69 701 24.69 724 0.69" />
+        </svg>
+    </div>
+    <div class="asi" id="button"></div>
+
+    <div class="karadaInfo">
+        <div class="karada" alt="" aria-busy=""></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 517.91 306" id="karada">
+            <circle fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-1" cx="14.55" cy="179.58" r="13.42" />
+            <line fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" x1="14.41" y1="179.5" x2="263.91" y2="113" />
+            <line fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" x1="405.91" y1="305" x2="517.91" y2="305" />
+            <polyline fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" points="263.91 169 263.91 18 282.91 1 312.91 1" />
+        </svg>
+    </div>
+    <div class="hara" id="button"></div>
+
+    <div id="date">
+        <div id="year"></div>
+        <div id="month"></div>
+        <div id="day"></div>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <span id="second"></span>
+    </div>
+    <div class="logo"><img src="images/page1.png" alt="" aria-busy=""></div>
+
+    <svg id="レイヤー_1" data-name="レイヤー 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 196" class="toumeiCircle">
+        <clipPath id="svgPath">
+            <circle class="en" cx="1200" cy="600" r="150">
+                <animate id="enAnime" attributeName="r" from="150" to="2500" dur="0.7s" begin="click" keyTimes="0" keySplines="0 1 0 1;" fill="freeze"></animate>
+            </circle>
+        </clipPath>
+    </svg>
+
+    <canvas id="space"></canvas>
+
+
+    <script type="text/javascript">
+        //ーーーーーこっからJSーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー         
+        $(document).click(function(event) {
+            if (!$(event.target).closest('.atama').length) {
+                setTimeout(function() {
+                    $(".basicInfo").css("display", "none");
+                }, 500);
+                $(".basic").css('opacity', '0');
+                $(".basic").css('transform', 'translateY(20px)');
+                $('#aLine').css('visibility', 'hidden');
+            } else {
+                setTimeout(function() {
+                    $(".basic").css('opacity', '1');
+                    $(".basic").css('transform', 'translateY(0)');
+                }, 23);
+                $(".basicInfo").css("display", "block");
+                const vivus = new Vivus('aLine', {
+                    type: 'oneByOne',
+                    duration: 23,
+                    animTimingFunction: Vivus.EASE_OUT,
+                });
+                $('#aLine').css('visibility', 'visible');
+                vivus.reset().play();
+            }
+        });
+        $(document).click(function(event) {
+            if (!$(event.target).closest('.mune').length) {
+                setTimeout(function() {
+                    $(".zayuuInfo").css("display", "none");
+                }, 500);
+                $(".zayuu").css('opacity', '0');
+                $(".zayuu").css('transform', 'translateY(20px)');
+                $('#zayuu').css('visibility', 'hidden');
+            } else {
+                setTimeout(function() {
+                    $(".zayuu").css('opacity', '1');
+                    $(".zayuu").css('transform', 'translateY(0)');
+                }, 23);
+
+                $(".zayuuInfo").css("display", "block");
+                const vivus = new Vivus('zayuu', {
+                    type: 'oneByOne',
+                    duration: 23,
+                    animTimingFunction: Vivus.EASE_OUT,
+                });
+                $('#zayuu').css('visibility', 'visible');
+                vivus.reset().play();
+            }
+        });
+
+        $(document).click(function(event) {
+            if (!$(event.target).closest('.asi').length) {
+                setTimeout(function() {
+                    $(".rekishiInfo").css("display", "none");
+                }, 500);
+                $(".rekishi").css('opacity', '0');
+                $(".rekishi").css('transform', 'translateY(20px)');
+                $(".rekishi2").css('opacity', '0');
+                $(".rekishi2").css('transform', 'translateY(20px)');
+                $('#rekishi').css('visibility', 'hidden');
+
+            } else {
+                setTimeout(function() {
+                    $(".rekishi").css('opacity', '1');
+                    $(".rekishi").css('transform', 'translateY(0)');
+                }, 500);
+                setTimeout(function() {
+                    $(".rekishi2").css('opacity', '1');
+                    $(".rekishi2").css('transform', 'translateY(0)');
+                }, 1000);
+
+                $(".rekishiInfo").css("display", "block");
+                const vivus = new Vivus('rekishi', {
+                    type: 'oneByOne',
+                    duration: 50,
+                    animTimingFunction: Vivus.EASE_OUT,
+                });
+                $('#rekishi').css('visibility', 'visible');
+                vivus.reset().play();
+            }
+        });
+        
+        $(document).click(function(event) {
+            if (!$(event.target).closest('.hara').length) {
+                setTimeout(function() {
+                    $(".karadaInfo").css("display", "none");
+                }, 500);
+                $(".karada").css('opacity', '0');
+                $(".karada").css('transform', 'translateY(20px)');
+                $('#karada').css('visibility', 'hidden');
+
+            } else {
+                setTimeout(function() {
+                    $(".karada").css('opacity', '1');
+                    $(".karada").css('transform', 'translateY(0)');
+                }, 500);
+
+                $(".karadaInfo").css("display", "block");
+                const vivus = new Vivus('karada', {
+                    type: 'oneByOne',
+                    duration: 50,
+                    animTimingFunction: Vivus.EASE_OUT,
+                });
+                $('#karada').css('visibility', 'visible');
+                vivus.reset().play();
+            }
+        });
+
+
+
+
+
+        // ーーーーー時間を別々に取得ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+        var timerID = setInterval('clock()', 500);
+
+
+        function clock() {
+
+            function nowSec() {
+                var now = new Date();
+                var Sec = now.getSeconds();
+                var ss = Sec;
+                return ss;
+            }
+            document.getElementById("second").innerHTML = nowSec();
+
+            // function nowYe(){var now = new Date();
+            // var Sec = now.getFullYear();
+            // var ss = Sec;
+            // return ss;}
+            document.getElementById("year").innerHTML = 2;
+
+            function nowMon() {
+                var now = new Date();
+                var Sec = now.getMonth() + 1;
+                var ss = Sec;
+                return ss;
+            }
+            document.getElementById("month").innerHTML = nowMon();
+
+            function nowDay() {
+                var now = new Date();
+                var Sec = now.getDate();
+                var ss = Sec;
+                return ss;
+            }
+            document.getElementById("day").innerHTML = nowDay();
+
+            function nowHour() {
+                var now = new Date();
+                var Sec = now.getHours();
+                var ss = Sec;
+                return ss;
+            }
+            document.getElementById("hour").innerHTML = nowHour();
+
+            function nowMin() {
+                var now = new Date();
+                var Sec = now.getMinutes();
+                var ss = Sec;
+                return ss;
+            }
+            document.getElementById("minute").innerHTML = nowMin();
+
+        }
+
+
+
+
+        // ーーーーーmatter.jsーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+        var Engine = Matter.Engine,
+            Render = Matter.Render,
+            Runner = Matter.Runner,
+            World = Matter.World,
+            Bodies = Matter.Bodies;
+
+        var engine = Engine.create(),
+            world = engine.world;
+
+        engine.world.gravity.y = 0; //重力ナシ
+
+        var winWidth = window.innerWidth;
+        var winHeight = window.innerHeight;
+
+        // レンダリング対象のキャンバス
+        var canvas = document.getElementById('space');
+
+        var MouseConstraint = Matter.MouseConstraint,
+            Mouse = Matter.Mouse;
+
+        // create renderer
+        var render = Render.create({ //レンダリングの設定？
+            element: document.body,
+            canvas: canvas,
+            engine: engine,
+            options: {
+                width: winWidth, //ステージの横幅
+                height: winHeight, //ステージの高さ
+                wireframes: false, //ワイヤーフレームモードをオフ
+                showAngleIndicator: false,
+                background: 'transparent',
+                showShadows: true,
+            }
+        });
+
+        var mouse = Mouse.create(render.canvas),
+            mouseConstraint = MouseConstraint.create(engine, {
+                mouse: mouse,
+                constraint: {
+                    stiffness: 0.2,
+                    render: {
+                        visible: false
+                    }
+                }
+            });
+        World.add(world, mouseConstraint);
+
+        // keep the mouse in sync with rendering
+        render.mouse = mouse;
+
+
+
+        Render.run(render); //ステージを配置させる記述？
+        Engine.run(engine);
+
+
+
+
+        //円のオブジェクト作成
+        var maru = Bodies.circle(winWidth - 100, 100, 30, {
+            restitution: 1,
+            render: {
+                sprite: { //スプライトの設定
+                    texture: './images/twitter.png', //テクスチャ画像を指定
+                    xScale: 0.1,
+                    yScale: 0.1
+                },
+
+            }
+        });
+
+        var maru3 = Bodies.circle(winWidth - 100, 190, 30, {
+            restitution: 1,
+            render: {
+
+                sprite: { //スプライトの設定
+                    texture: './images/insta.png', //テクスチャ画像を指定
+                    xScale: 0.1,
+                    yScale: 0.1
+                },
+
+            }
+        });
+
+        var maru4 = Bodies.circle(winWidth - 100, 280, 30, {
+            restitution: 1,
+            render: {
+                sprite: { //スプライトの設定
+                    texture: './images/facebook.png', //テクスチャ画像を指定
+                    xScale: 0.1,
+                    yScale: 0.1
+                },
+
+            }
+        });
+
+        var maruFake = Bodies.circle(winWidth - 100, 100, 30, {
+            restitution: 1,
+            render: {
+                sprite: { //スプライトの設定
+                    texture: './images/twitter.png', //テクスチャ画像を指定
+                    xScale: 0.1,
+                    yScale: 0.1
+                },
+
+            }
+        });
+
+        var maru3Fake = Bodies.circle(winWidth - 100, 190, 30, {
+            restitution: 1,
+            render: {
+                sprite: { //スプライトの設定
+                    texture: './images/insta.png', //テクスチャ画像を指定
+                    xScale: 0.1,
+                    yScale: 0.1
+                },
+
+            }
+        });
+
+        var maru4Fake = Bodies.circle(winWidth - 100, 280, 30, {
+            restitution: 1,
+            render: {
+                sprite: { //スプライトの設定
+                    texture: './images/facebook.png', //テクスチャ画像を指定
+                    xScale: 0.1,
+                    yScale: 0.1
+                },
+
+            }
+        });
+
+
+        var yuka = Bodies.rectangle(winWidth / 2, winHeight + 500, winWidth, 1000, {
+            isStatic: true,
+            render: {
+                strokeStyle: 'rgba(0, 0, 0, 0)',
+                fillStyle: 'rgba(0, 0, 0, 0)'
+            }
+        });
+
+        var leftwall = Bodies.rectangle(winWidth + 500, 500, 1000, 2000, {
+            isStatic: true,
+            render: {
+                strokeStyle: 'rgba(0, 0, 0, 0)',
+                fillStyle: '#F08E8F'
+            }
+        });
+
+        var Rightwall = Bodies.rectangle(-500, 500, 1000, 2000, {
+            isStatic: true,
+            render: {
+                strokeStyle: 'rgba(0, 0, 0, 0)',
+                fillStyle: '#F08E8F'
+            }
+        });
+
+        var topwall = Bodies.rectangle(winWidth / 2, -500, winWidth, 1000, {
+            isStatic: true,
+            render: {
+                strokeStyle: 'rgba(0, 0, 0, 0)',
+                fillStyle: '#F08E8F'
+            }
+        });
+
+        function remove() {
+            World.remove(world, [maru4Fake, maruFake, maru3Fake]);
+            World.add(world, [maru, maru3, maru4]);
+            engine.world.gravity.y = 7;
+        };
+
+        Matter.Events.on(mouseConstraint, 'mousedown', function(event) {
+            if (event.source.body === maruFake) {
+                remove()
+            }
+        });
+
+        Matter.Events.on(mouseConstraint, 'mousedown', function(event) {
+            if (event.source.body === maru) {
+                window.open('https://twitter.com/Yoneyone83', '_blank');
+            }
+        });
+
+        Matter.Events.on(mouseConstraint, 'mousedown', function(event) {
+            if (event.source.body === maru3Fake) {
+                remove()
+            }
+        });
+
+        Matter.Events.on(mouseConstraint, 'mousedown', function(event) {
+            if (event.source.body === maru3) {
+                window.open('https://www.instagram.com/k_irorio/?hl=ja', '_blank');
+            }
+        });
+        Matter.Events.on(mouseConstraint, 'mousedown', function(event) {
+            if (event.source.body === maru4Fake) {
+                remove()
+            }
+        });
+
+        Matter.Events.on(mouseConstraint, 'mousedown', function(event) {
+            if (event.source.body === maru4) {
+                window.open('https://www.facebook.com/kei.yonekura.31', '_blank');
+            }
+        });
+
+
+        World.add(world, [
+            yuka, maru3Fake, maru4Fake, leftwall, Rightwall, topwall, maruFake
+        ]);
+
+        // ーーーーークリックイベントjQueryーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+        $(function() {
+            $(window).mousemove(function(e) {
+                var btnX = e.clientX
+                var btnY = e.clientY
+                var widthAmari = "75px"
+                var heightAmari = "50px"
+
+                $(".en").attr("cy", btnY);
+                $(".en").attr("cx", btnX);
+
+                $('.en').click(function(e) {
+                    flag = false
+
+                });
+            });
+
+        });
+
+        var flag = true;
+
+        $(function() {
+            $("body").click(function(e) {
+                $("#button").css("display", "block");
+                $(".basic").css("display", "block");
+                $(".zayuu").css("display", "block");
+                $(".rekishi").css("display", "block");
+                $(".rekishi2").css("display", "block");
+                $(".karada").css("display", "block");
+                $("canvas").css("display", "block");
+                //                $(".basicInfo").css("display", "block");
+                if (flag == true) {
+                    document.getElementById('enAnime').beginElement();
+                    flag = false;
+
+                    $("#space").css("z-index", "106");
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

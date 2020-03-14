@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP:700&display=swap&subset=japanese');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:500&display=swap&subset=japanese');
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    background-color: antiquewhite;
+    cursor: url(images/cursol.png), auto;
+    width: 100vw;
+    height: 100vh;
+}
+
+#date {
+    display: flex;
+    width: 34%;
+    height: 80px;
+    position: absolute;
+    top: 31%;
+    left: 48.5%;
+    z-index: 105;
+}
+
+#year {
+    width: 16.67%;
+    height: 80px;
+    font-family: 'Shadows Into Light', cursive;
+    ;
+    font-size: 48px;
+    text-align: center;
+    color: white;
+}
+
+#month {
+    width: 16.67%;
+    height: 80px;
+    font-family: 'Shadows Into Light', cursive;
+    ;
+    font-size: 48px;
+    text-align: center;
+    color: white;
+}
+
+#day {
+    width: 16.67%;
+    height: 80px;
+    font-family: 'Shadows Into Light', cursive;
+    ;
+    font-size: 48px;
+    text-align: center;
+    color: white;
+}
+
+#hour {
+    width: 16.67%;
+    height: 80px;
+    font-family: 'Shadows Into Light', cursive;
+    ;
+    font-size: 48px;
+    text-align: center;
+    color: white;
+}
+
+#minute {
+    width: 16.67%;
+    height: 80px;
+    font-family: 'Shadows Into Light', cursive;
+    ;
+    font-size: 48px;
+    text-align: center;
+    color: white;
+}
+
+#second {
+    width: 16.67%;
+    height: 80px;
+    font-family: 'Shadows Into Light', cursive;
+    ;
+    font-size: 48px;
+    text-align: center;
+    color: white;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+/*    width: 100%;*/
+    height: 100%;
+}
+
+
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+}
+
+
+.toumeiCircle {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+}
+
+
+
+.mask {
+    background-color: azure;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    -webkit-clip-path: url(#svgPath);
+    clip-path: url(#svgPath);
+    z-index: 106;
+}
+
+
+
+.basicInfo{
+    position: absolute;
+    z-index: 1000;
+    top: 10%;
+    left: 6%;
+    width: 30vw;
+    height: 100vh;
+
+    display: none;
+}.basic {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    width:100%;
+    height: 100vh;
+    z-index: 1001;
+    display: none;
+    background-image: url(images/basicInfo.png) ;
+    background-size: contain;
+    background-repeat: no-repeat;
+}#aLine {
+    visibility: hidden;
+    z-index: 1001;
+    position: absolute;
+    top: -2.2%;
+    left: -4%;
+    width: 108%;
+}.atama {
+    opacity: 0;
+    width: 200px;
+    height: 100px;
+    background-color: aqua;
+    position: absolute;
+    top: 20%;
+    left: 45%;
+    z-index: 1000;
+    display: none:
+}
+
+.zayuuInfo{
+    position: absolute;
+    width: 37vw;
+    height: 20vh;
+    top: 30vh;
+    left: 50vw;
+    z-index: 1000;
+}#zayuu{
+    position: absolute;
+    visibility: hidden;
+    z-index: 1000;
+}.zayuu {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    width:55%;
+    top: 6.5%;
+    left: 42.7%;
+    height: 100vh;
+    z-index: 1001;
+    display: none;
+    background-image: url(images/zayuu.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}.mune{
+    opacity: 0;
+    width: 250px;
+    height: 120px;
+    background-color: aqua;
+    position: absolute;
+    top: 33%;
+    left: 43%;
+    z-index: 1000;
+    display: block;
+}
+
+.rekishiInfo{
+    position: absolute;
+    width: 87vw;
+    height: 80vh;
+    top: 23vh;
+    left: 6vw;
+    z-index: 1000;
+}#rekishi{
+    position: absolute;
+    visibility: hidden;
+    z-index: 1000;
+}.rekishi {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    width:33%;
+    top: 32.2%;
+    left: 1.4%;
+    height: 100vh;
+    z-index: 1001;
+    display: none;
+    background-image: url(images/rekishi1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}.rekishi2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    width:33%;
+    top:2.5%;
+    left: 65.4%;
+    height: 100vh;
+    z-index: 1001;
+    display: none;
+    background-image: url(images/rekishi2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}.asi{
+    opacity: 0;
+    width: 250px;
+    height: 170px;
+    background-color: aqua;
+    position: absolute;
+    top: 76%;
+    left: 43%;
+    z-index: 1000;
+    display: block;
+}
+
+.karadaInfo{
+    position: absolute;
+    width: 44vw;
+    height: 20vh;
+    top: 25vh;
+    left: 48vw;
+    z-index: 1000;
+}#karada{
+    position: absolute;
+    visibility: hidden;
+    z-index: 1000;
+}.karada {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    width:46%;
+    top: 10%;
+    left: 54%;
+    height: 100vh;
+    z-index: 1001;
+    display: none;
+    background-image: url(images/karada.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}.hara{
+    opacity: 0;
+    width: 250px;
+    height: 160px;
+    background-color: aqua;
+    position: absolute;
+    top: 46%;
+    left: 43%;
+    z-index: 1000;
+    display:　none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
