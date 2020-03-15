@@ -16,6 +16,9 @@
     <video class="mask" autoplay loop muted>
         <source src="./movie/stand1.mp4">
     </video>
+    <img class="me"src="movie/me.png" alt="">
+
+
 
     <div class="basicInfo">
         <div class="basic" alt="" aria-busy="">
@@ -65,6 +68,28 @@
         </svg>
     </div>
     <div class="hara" id="button"></div>
+
+    <div class="insta">
+        <!-- SnapWidget -->
+        <div class="insta2">
+            <!-- SnapWidget -->
+            <script src="https://snapwidget.com/js/snapwidget.js"></script>
+            <iframe src="https://snapwidget.com/embed/802005" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
+        </div>
+
+    </div>
+    <div class="hidari" id="button"></div>
+
+    <div class="shumiInfo">
+        <div class="shumi" alt="" aria-busy=""></div>
+        <svg id="shumi"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.91 261">
+            <polyline fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-1" points="511.91 146 511.91 246 511.91 260 427.91 260" />
+            <circle fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-2" cx="14.55" cy="90.58" r="13.42" />
+            <line fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-3" x1="14.13" y1="91" x2="187.91" y2="135" />
+            <line fill="none" stroke="#000000" stroke-width="2.5" stroke-miterlimit="10" class="cls-3" x1="187.91" x2="187.91" y2="211" />
+        </svg>
+    </div>
+    <div class="migi" id="button"></div>
 
     <div id="date">
         <div id="year"></div>
@@ -168,7 +193,7 @@
                 vivus.reset().play();
             }
         });
-        
+
         $(document).click(function(event) {
             if (!$(event.target).closest('.hara').length) {
                 setTimeout(function() {
@@ -194,6 +219,50 @@
                 vivus.reset().play();
             }
         });
+
+        $(document).click(function(event) {
+            if (!$(event.target).closest('.hidari').length) {
+                setTimeout(function() {
+                    $(".insta").css("display", "none");
+                }, 500);
+                $(".insta").css('opacity', '0');
+                $(".insta").css('transform', 'translateY(20px)');
+
+            } else {
+
+                setTimeout(function() {
+                    $(".insta").css('opacity', '1');
+                    $(".insta").css('transform', 'translateY(0)');
+                }, 10);
+            }
+        });
+        
+        $(document).click(function(event) {
+            if (!$(event.target).closest('.migi').length) {
+                setTimeout(function() {
+                    $(".shumiInfo").css("display", "none");
+                }, 500);
+                $(".shumi").css('opacity', '0');
+                $(".shumi").css('transform', 'translateY(20px)');
+                $('#shumi').css('visibility', 'hidden');
+
+            } else {
+                setTimeout(function() {
+                    $(".shumi").css('opacity', '1');
+                    $(".shumi").css('transform', 'translateY(0)');
+                }, 500);
+
+                $(".shumiInfo").css("display", "block");
+                const vivus = new Vivus('shumi', {
+                    type: 'oneByOne',
+                    duration: 50,
+                    animTimingFunction: Vivus.EASE_OUT,
+                });
+                $('#shumi').css('visibility', 'visible');
+                vivus.reset().play();
+            }
+        });
+
 
 
 
@@ -497,6 +566,8 @@
                 $(".rekishi").css("display", "block");
                 $(".rekishi2").css("display", "block");
                 $(".karada").css("display", "block");
+                $(".insta").css("display", "block");
+                $(".shumi").css("display", "block");
                 $("canvas").css("display", "block");
                 //                $(".basicInfo").css("display", "block");
                 if (flag == true) {
@@ -507,6 +578,61 @@
                 }
             });
 
+        });
+
+        $(function() {
+            $('.atama')
+                .mouseover(function(e) {
+                    $("body").css('cursor', 'url(images/cursor_yellow.png), auto');
+                })
+                .mouseout(function(e) {
+                    $("body").css('cursor', 'url(images/cursor0.png), auto');
+                });
+        });
+        $(function() {
+            $('.mune')
+                .mouseover(function(e) {
+                    $("body").css('cursor', 'url(images/cursor_orange.png), auto');
+                })
+                .mouseout(function(e) {
+                    $("body").css('cursor', 'url(images/cursor0.png), auto');
+                });
+        });
+        $(function() {
+            $('.hara')
+                .mouseover(function(e) {
+                    $("body").css('cursor', 'url(images/cursor_green.png), auto');
+                })
+                .mouseout(function(e) {
+                    $("body").css('cursor', 'url(images/cursor0.png), auto');
+                });
+        });
+        $(function() {
+            $('.asi')
+                .mouseover(function(e) {
+                    $("body").css('cursor', 'url(images/cursor_white.png), auto');
+                })
+                .mouseout(function(e) {
+                    $("body").css('cursor', 'url(images/cursor0.png), auto');
+                });
+        });
+        $(function() {
+            $('.hidari')
+                .mouseover(function(e) {
+                    $("body").css('cursor', 'url(images/cursor_insta.png), auto');
+                })
+                .mouseout(function(e) {
+                    $("body").css('cursor', 'url(images/cursor0.png), auto');
+                });
+        });
+         $(function() {
+            $('.migi')
+                .mouseover(function(e) {
+                    $("body").css('cursor', 'url(images/cursor_purple.png), auto');
+                })
+                .mouseout(function(e) {
+                    $("body").css('cursor', 'url(images/cursor0.png), auto');
+                });
         });
     </script>
 

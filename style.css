@@ -11,7 +11,7 @@
 
 body {
     background-color: antiquewhite;
-    cursor: url(images/cursol.png), auto;
+    cursor: url(images/cursor0.png), auto;
     width: 100vw;
     height: 100vh;
 }
@@ -24,6 +24,7 @@ body {
     top: 31%;
     left: 48.5%;
     z-index: 105;
+    position: absolute;
 }
 
 #year {
@@ -137,8 +138,18 @@ canvas {
     -webkit-clip-path: url(#svgPath);
     clip-path: url(#svgPath);
     z-index: 106;
+}.me{
+    opacity: 0.2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 106;
 }
-
 
 
 .basicInfo{
@@ -147,7 +158,7 @@ canvas {
     top: 10%;
     left: 6%;
     width: 30vw;
-    height: 100vh;
+    height: 41.7705vw;
 
     display: none;
 }.basic {
@@ -155,12 +166,12 @@ canvas {
     transform: translateY(20px);
     transition: all 0.3s;
     width:100%;
-    height: 100vh;
+    height: 41.7705vw;
     z-index: 1001;
     display: none;
     background-image: url(images/basicInfo.png) ;
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }#aLine {
     visibility: hidden;
     z-index: 1001;
@@ -183,7 +194,7 @@ canvas {
 .zayuuInfo{
     position: absolute;
     width: 37vw;
-    height: 20vh;
+    height: 15.0748vw;
     top: 30vh;
     left: 50vw;
     z-index: 1000;
@@ -196,9 +207,9 @@ canvas {
     transform: translateY(20px);
     transition: all 0.3s;
     width:55%;
+    height: 15.0748vw;
     top: 6.5%;
     left: 42.7%;
-    height: 100vh;
     z-index: 1001;
     display: none;
     background-image: url(images/zayuu.png);
@@ -295,16 +306,91 @@ canvas {
     position: absolute;
 }.hara{
     opacity: 0;
-    width: 250px;
+    width: 170px;
     height: 160px;
-    background-color: aqua;
+    background-color: red;
     position: absolute;
     top: 46%;
-    left: 43%;
+    left: 45%;
     z-index: 1000;
     display:　none;
 }
 
+.insta{
+    opacity: 0;
+    display: none;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    width:35%; 
+    height: 48.732vw;
+    background-image: url(images/whitebox.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    z-index: 2000;
+}.insta2{
+    position: absolute;
+    width: 86%;
+    height: 90%;
+    left: 7%;
+    top: 5%;
+    overflow: auto;
+}
+iframe{
+    z-index: 2000;
+    position: absolute;
+    width:100%; 
+    height: 100%;
+}.hidari{
+    opacity: 0;
+    width: 60px;
+    height: 290px;
+    background-color: aqua;
+    position: absolute;
+    top: 37%;
+    left: 42%;
+    z-index: 1000;
+    display:　none;
+}
+
+.shumiInfo{
+    position: absolute;
+    width: 35vw;
+    height: 20vh;
+    top: 46vh;
+    left: 53vw;
+    z-index: 1000;
+}#shumi{
+    position: absolute;
+    visibility: hidden;
+    z-index: 1000;
+}.shumi {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    width:56%;
+    top: -115%;
+    left: 40.4%;
+    height: 100vh;
+    z-index: 1001;
+    display: none;
+    background-image: url(images/shumi.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}.migi{
+    opacity: 0;
+   width: 100px;
+    height: 290px;
+    background-color: blueviolet;
+    position: absolute;
+    top: 37%;
+    left: 52%;
+    z-index: 1000;
+    display:　none;
+}
 
 
 
